@@ -1,0 +1,57 @@
+import re
+
+def chatbot_response(user_input):
+    user_input = user_input.lower()
+
+    # Greetings
+    if re.search(r"\b(hi|hello|hey)\b", user_input):
+        return "Hello! How can I help you today?"
+
+    # Asking for name
+    elif re.search(r"your name", user_input):
+        return "I'm ChatBuddy, your friendly assistant!"
+
+    # Asking for age
+    elif re.search(r"how old are you", user_input):
+        return "I don’t have an age, but I’m constantly learning new things!"
+
+    # Asking about weather
+    elif re.search(r"weather", user_input):
+        return "I can’t check live weather yet, but it’s always sunny in the digital world!"
+
+    # Asking for help
+    elif re.search(r"help", user_input):
+        return "Sure! I can chat with you, tell jokes, or answer simple questions."
+
+    # Asking for joke
+    elif re.search(r"joke", user_input):
+        return "Why did the computer go to the doctor? Because it had a virus! 😂"
+
+    # Asking about favorite color
+    elif re.search(r"color", user_input):
+        return "I like blue — it reminds me of the sky and calm seas!"
+
+    # Asking about time
+    elif re.search(r"time", user_input):
+        return "I don’t have a clock, but it’s always a good time to learn something new!"
+
+    # Asking about creator
+    elif re.search(r"who made you|created you", user_input):
+        return "I was created by a developer learning Python — just like you!"
+
+    # Saying goodbye
+    elif re.search(r"\b(bye|goodbye|see you)\b", user_input):
+        return "Goodbye! It was nice chatting with you 😊"
+
+    # Fallback response
+    else:
+        return "I'm not sure I understand that. Can you rephrase it?"
+
+# --- Run chatbot in a loop ---
+print("ChatBuddy: Hello! Type 'bye' to exit.")
+while True:
+    user_input = input("You: ")
+    response = chatbot_response(user_input)
+    print("ChatBuddy:", response)
+    if re.search(r"\b(bye|goodbye)\b", user_input.lower()):
+        break
